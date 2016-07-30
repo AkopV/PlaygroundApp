@@ -1,63 +1,58 @@
 package com.vardanian.longestsublist;
 
+import java.util.ArrayList;
+
 public class LongestSubList {
 
-    private class Pair {
-        public int a;
-        public int b;
+    public static ArrayList<int[]> getLongestSubList(int[][] array) {
 
-        public Pair(int a, int b) {
-            this.a = a;
-            this.b = b;
+        ArrayList<int[]> inputSubList = new ArrayList<int[]>();
+        ArrayList<int[]> outputSubList = new ArrayList<int[]>();
+
+        for (int i = 0; i < array.length - 1; i++) {
+            for (int j = 0; j < array[i].length-1; j++) {
+                if (array[i][j] < array[i + 1][j] &&
+                        array[i][j + 1] > array[i + 1][j + 1]) {
+                    if (!inputSubList.contains(array[i])) {
+                        inputSubList.add(array[i]);
+                    }
+                } else {
+                    inputSubList.add(array[i]);
+                    if (inputSubList.size() > outputSubList.size()) {
+                        outputSubList.clear();
+                        outputSubList.addAll(inputSubList);
+                        inputSubList.clear();
+                    }
+                    break;
+                }
+            }
         }
+        return outputSubList;
     }
 
-    public Pair[] longestSubList(Pair[] input) {
-        int start = 0;
-        int maxSorted = input[0].b;
-        int minSorted = input[0].b;
+    public static void printList(ArrayList<int[]> list) {
 
-        int bestStart = 0;
-        int bestEnd = 0;
-
-        for (int i = 1; i < input.length; i++) {
-            if (input[i].a < input[i - 1].a) {
-                start = i;
-                maxSorted = input[i].b;
-            } else {
-                maxSorted -= input[i].b;
+        for (int[] arr : list) {
+            for (int i : arr) {
+                System.out.print(i + " ");
             }
-            if (maxSorted < minSorted) {
-                minSorted = maxSorted;
-                bestStart = start;
-                bestEnd = i;
-            }
+            System.out.println();
         }
-
-        Pair[] out = new Pair[bestEnd - bestStart + 1];
-        System.arraycopy(input, bestStart, out, 0, bestEnd - bestStart + 1);
-        return out;
     }
 
     public static void main(String args[]) {
-        LongestSubList subList = new LongestSubList();
-        Pair[] input = new Pair[5];
-        input[0] = subList.new Pair(1, 4);
-        input[1] = subList.new Pair(2, 5);
-        input[2] = subList.new Pair(7, 3);
-        input[3] = subList.new Pair(4, 6);
-        input[4] = subList.new Pair(7, 7);
-        Pair[] out = subList.longestSubList(input);
-        System.out.println("input:");
-        display(input);
-        System.out.println("output: ");
-        display(out);
-    }
+        int[][] arr = {
+                {1, 4},
+                {2, 5},
+                {7, 3},
+                {4, 6},
+                {7, 7}
+        };
 
-    private static void display(Pair[] out) {
-        for(int i =0;i<out.length;i++){
-            System.out.print("(" + out[i].a+ ", " + out[i].b + ") ");
-        }
-        System.out.println();
+        ArrayList<int[]> list = new ArrayList<int[]>();
+        System.out.println("The longest sub-list that has the pairs sorted by the first entry in ascending order by the second in descending order: ");
+        list = getLongestSubList(arr);
+        printList(list);
+
     }
 }

@@ -12,7 +12,8 @@ public class FindSumFactorialNumbers {
         if (number.compareTo(BigInteger.valueOf(1)) == 0) {
             return number;
         } else {
-            return number.multiply(factorial(number.subtract(BigInteger.valueOf(1))));
+            BigInteger fact = factorial(number.subtract(BigInteger.valueOf(1)));
+            return number.multiply(fact);
         }
     }
 
@@ -34,7 +35,7 @@ public class FindSumFactorialNumbers {
     public static void main(String[] args) {
         FindSumFactorialNumbers findSumFactorialNumbers = new FindSumFactorialNumbers();
         long sumFactorialNumber = findSumFactorialNumbers.sum(findSumFactorialNumbers.factorial(BigInteger.valueOf(100)));
-        System.out.println("The sum of factorials number is: " + sumFactorialNumber);
+        System.out.println("he sum of digits in factorial of 100 is: " + sumFactorialNumber);
     }
 }
 

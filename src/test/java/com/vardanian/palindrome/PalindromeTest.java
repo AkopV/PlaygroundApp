@@ -1,20 +1,21 @@
 package com.vardanian.palindrome;
 
-import org.testng.Assert;
+import static org.testng.Assert.assertEquals;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class PalindromeTest {
 
-    Palindrome palindrome = new Palindrome();
+    Palindrome palindrome;
 
-    @Test
-    public void findPalindromeTest() {
-        boolean check = palindrome.findPalindrome(906609);
-        Assert.assertEquals(true, check);
+    @BeforeTest
+    public void setUp() {
+        palindrome = new Palindrome();
     }
 
     @Test
     public void findLargestPalindromeTest() {
-        Assert.assertEquals(906609, palindrome.findLargestPalindrome());
+        int check = palindrome.findLargestPalindrome();
+        assertEquals(906609, check);
     }
 }
