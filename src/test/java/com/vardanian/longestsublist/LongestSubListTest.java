@@ -29,7 +29,7 @@ public class LongestSubListTest {
         longestSubList.printList(result);
         int [][] arrCheck = {{2,5}, {7,3}};
 
-        assertEquals(result.toArray(), arrCheck);
+        assertEquals(arrCheck, result.toArray());
     }
 }
 
