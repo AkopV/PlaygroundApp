@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class LongestSubList {
 
-    public static ArrayList<int[]> getLongestSubList(int[][] array) {
+    public ArrayList<int[]> getLongestSubList(int[][] array) {
 
         ArrayList<int[]> inputSubList = new ArrayList<int[]>();
         ArrayList<int[]> outputSubList = new ArrayList<int[]>();
@@ -30,7 +30,7 @@ public class LongestSubList {
         return outputSubList;
     }
 
-    public static void printList(ArrayList<int[]> list) {
+    public  void printList(ArrayList<int[]> list) {
 
         for (int[] arr : list) {
             for (int i : arr) {
@@ -41,6 +41,8 @@ public class LongestSubList {
     }
 
     public static void main(String args[]) {
+        LongestSubList longestSubList = new LongestSubList();
+
         int[][] arr = {
                 {1, 4},
                 {2, 5},
@@ -51,8 +53,8 @@ public class LongestSubList {
 
         ArrayList<int[]> list = new ArrayList<int[]>();
         System.out.println("The longest sub-list that has the pairs sorted by the first entry in ascending order by the second in descending order: ");
-        list = getLongestSubList(arr);
-        printList(list);
+        list = longestSubList.getLongestSubList(arr);
+        longestSubList.printList(list);
 
     }
 }

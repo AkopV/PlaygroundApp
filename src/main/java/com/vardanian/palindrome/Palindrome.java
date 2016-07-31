@@ -34,6 +34,6 @@ public class Palindrome {
     public static void main(String[] args) {
         Palindrome palindrome = new Palindrome();
         int largestPalindrome = palindrome.findLargestPalindrome();
-        System.out.println(largestPalindrome);
+        System.out.println("The largest palindrome that formed by the product of two three-digit numbers is: " + largestPalindrome);
     }
 }
