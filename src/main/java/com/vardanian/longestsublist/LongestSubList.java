@@ -43,7 +43,7 @@ public class LongestSubList {
     public static void main(String args[]) {
         LongestSubList longestSubList = new LongestSubList();
 
-        int[][] arr = {
+        int[][] inputValues = {
                 {1, 4},
                 {2, 5},
                 {7, 3},
@@ -51,9 +51,8 @@ public class LongestSubList {
                 {7, 7}
         };
 
-        ArrayList<int[]> list = new ArrayList<int[]>();
+        ArrayList<int[]> list = longestSubList.getLongestSubList(inputValues);
         System.out.println("The longest sub-list that has the pairs sorted by the first entry in ascending order by the second in descending order: ");
-        list = longestSubList.getLongestSubList(arr);
         longestSubList.printList(list);
 
     }

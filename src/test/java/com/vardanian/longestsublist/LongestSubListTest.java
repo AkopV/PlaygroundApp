@@ -18,18 +18,18 @@ public class LongestSubListTest {
 
     @Test
     public void getLongestSubList() {
-        int[][] arr = {
+        int[][] inputValues = {
                 {1, 4},
                 {2, 5},
                 {7, 3},
                 {4, 6},
                 {7, 7}
         };
-        ArrayList<int[]> result = longestSubList.getLongestSubList(arr);
+        ArrayList<int[]> result = longestSubList.getLongestSubList(inputValues);
         longestSubList.printList(result);
-        int [][] arrCheck = {{2,5}, {7,3}};
+        int [][] resultSublist = {{2,5}, {7,3}};
 
-        assertEquals(arrCheck, result.toArray());
+        assertEquals(resultSublist, result.toArray());
     }
 }
 
